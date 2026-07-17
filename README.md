@@ -44,5 +44,5 @@ Follow the on-screen prompts to enter the principal, rate of interest, and time 
 This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file for details.
 
 ## Contributing
-
+2023 XYZ, Inc.
 Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.

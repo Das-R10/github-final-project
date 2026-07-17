@@ -1,32 +1,28 @@
 #!/bin/bash
-# simple-interest.sh
-# A simple calculator that computes simple interest based on user input.
+# This script calculates simple interest given principal,
+# annual rate of interest and time period in years.
 
-echo "===== Simple Interest Calculator ====="
+# Do not use this in production. Sample purpose only.
 
-# Prompt user for input
-read -p "Enter Principal Amount: " principal
-read -p "Enter Rate of Interest (in %): " rate
-read -p "Enter Time Period (in years): " time
+# Author: Upkar Lidder (IBM)
+# Additional Authors:
+# <your GitHub username>
 
-# Validate that inputs are numeric
-if ! [[ "$principal" =~ ^[0-9]+([.][0-9]+)?$ ]] || \
-   ! [[ "$rate" =~ ^[0-9]+([.][0-9]+)?$ ]] || \
-   ! [[ "$time" =~ ^[0-9]+([.][0-9]+)?$ ]]; then
-    echo "Error: Please enter valid numeric values."
-    exit 1
-fi
+# Input:
+# p, principal amount
+# t, time period in years
+# r, annual rate of interest
 
-# Calculate simple interest: SI = (P * R * T) / 100
-simple_interest=$(echo "scale=2; ($principal * $rate * $time) / 100" | bc)
+# Output:
+# simple interest = p*t*r
 
-# Calculate total amount
-total_amount=$(echo "scale=2; $principal + $simple_interest" | bc)
+echo "Enter the principal:"
+read p
+echo "Enter time period in years:"
+read t
+echo "Enter rate of interest per year:"
+read r
 
-echo "---------------------------------------"
-echo "Principal Amount   : $principal"
-echo "Rate of Interest   : $rate%"
-echo "Time Period         : $time years"
-echo "Simple Interest      : $simple_interest"
-echo "Total Amount        : $total_amount"
-echo "---------------------------------------"
+s=$(echo "scale=2; $p * $t * $r / 100" | bc)
+echo "The simple interest is: "
+echo $s
